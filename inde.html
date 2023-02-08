@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>page import</title>
+
+</head>
+<body onload="getLocation()" >
+    <header>
+        <h1 id="title" class="text-center" >freeCodeCamp Survey Form</h1>
+    </header>
+    <main>
+        <form id="survey-form">
+            <div class="form-group">
+                <label class="name-label" id="name-label" for="name">Name</label>
+                <br>
+                <input type="text" name="name" id="name" class="form-cotrol" placeholder="Enter your Name" required>
+            </div>
+        
+            <div class="form-group">
+                <label class="name-label" id="email-label" for="email">Email</label>
+                <br>
+                <input type="text" name="email" id="email" class="form-cotrol" placeholder="Enter your Email">
+            </div>
+
+            <div class="form-group">
+                <label class="age-label" id="age-label" for="number">
+                    Age
+                    <span class="clue" >(optional)</span>
+                </label>
+                <br>
+                <input type="number" class="form-cotrol" name="age" id="unmber" min="8" max="70" class="from-cotrol" placeholder="Age">
+            </div>
+  
+            <div class="form-group">
+                <label class="label" id="name-label" for="name">Form which school</label>
+                <input type="text" name="Any" id="name" class="form-cotrol" placeholder="Enter your school" required>
+            </div>      
+
+            <div class="form-group">
+                <p>what is your level </p>
+                    <select  name="role"  class="from-cotrola" required>
+                    <option disabled selected value>Any School</option>
+                    <option value="school 1">Elementary School</option>
+                    <option value="school 2">Middle School</option>
+                    <option value="school 3 ">Secondary School</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+            
+                <label class="name-label" id="class-label"  for="number">
+                    what is your grade
+                </label>
+                <br>
+                <input type="number" class="form-cotroldsfs" name="food" id="unmber" min="1" max="12"  placeholder="which class" >
+            </div>
+        
+            <div class="form-group">
+                <p>Favourie lesson</p>
+                <label>
+                   <input name="prefer" value="matrix" type="checkbox" class="input-checkbox">
+                    MATHS
+                </label>
+                <br >
+            
+                <label>
+                    <input name="prefer" value="science" type="checkbox" class="input-checkbox">
+                     SCIENCE
+                </label>
+                <br>
+                <label>
+                    <input name="prefer" value="english" type="checkbox" class="input-checkbox">
+                     ENGLISH
+                </label>
+                <br>
+
+                <label>
+                    <input name="prefer" value="GEOGRAPHY" type="checkbox" class="input-checkbox">
+                    GEOGRAPHY
+                </label>
+                <br>
+                <label>
+                    <input name="prefer" value="HISTORY" type="checkbox" class="input-checkbox">
+                    HISTORY
+                </label>
+                <br>
+                <label>
+                    <input name="prefer" value="ART" type="checkbox" class="input-checkbox">
+                    ART
+                </label>
+                <br>
+                <label>
+                    <input name="prefer" value="MUSIC" type="checkbox" class="input-checkbox">
+                    MUSIC
+                </label>
+                <br>
+                <label>
+                    <input name="prefer" value="PE" type="checkbox" class="input-checkbox">
+                    PE
+                </label>
+
+            </div>
+            <br>
+        
+
+            <div class="form-group">
+                <label class="asdfd">Are you satisfied with our school</label>
+                <label >
+                    <p></p>
+                    <input name="user-recommend" value="yes" type="radio" class="input-radio"charset>
+                    Yes
+                </label>
+                <br>
+                <label >    
+                    <input name="user-recommend" value="yek" type="radio" class="input-radio"charset>
+                    Little
+                </label>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <p>what do you want to be in the future and which unlverstiy do you wnat to study in ?</p>
+                <textarea type="text" name="comment" id="comments" class="input-textarea" placeholder="Enter your comment here...." ></textarea>
+            </div>
+        
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">secuess</button>
+            
+            </div>
+        
+    
+        </form>
+    </main>
+
+    <script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } 
+        else{ 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "save_lication.php?lat="+position.coords.latitude +"&long-"+ position.coords.longitude );
+        xhttp.send();
+
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
+    
+    
+</body>
+</html>        
